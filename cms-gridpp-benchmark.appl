@@ -1,6 +1,6 @@
 name: cms-benchmark
 summary: CMS GridPP Cloud benchmark SL 5.9
-version: 1
+version: 2
 release: 0
 
 os:
@@ -92,5 +92,5 @@ post:
     - "/sbin/chkconfig mount_ephemeral on"
     - "chmod +w /etc/sudoers; sed -i 's/Defaults    requiretty/#Defaults    requiretty/g' /etc/sudoers; chmod -w /etc/sudoers"
     - "cp -f /usr/share/zoneinfo/Europe/London /etc/localtime"
-    - "sed -i '/kernel/ s|$| selinux=0 console=tty0 console=ttyS1|' /boot/grub/grub.conf" 
+    - "sed -i '/kernel/ s|$| selinux=0 console=tty0 console=ttyS0|' /boot/grub/grub.conf" 
     - "mkdir /data"
