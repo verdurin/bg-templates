@@ -1,0 +1,4 @@
+srpms/
+rpmbuild/
+build/
+log/
