@@ -1,0 +1,34 @@
+name: centos64-2
+summary: CentOS 6.4 
+version: 2
+release: 0
+
+os:
+  name: centos
+  version: 6
+ 
+hardware:
+  cpus: 1
+  memory: 2048
+  partitions:
+    "/":
+      size: 10
+
+repos:
+  - name: "EPEL6-x86_64"
+    baseurl: "http://mirror.bytemark.co.uk/fedora/epel/6/x86_64/"
+
+packages:
+  - @core
+  - @development-tools
+  - screen
+  - vim-enhanced
+  - bash-completion
+  - cloud-init
+
+
+
+post:
+  base:
+    - "sed -i '/kernel/ s|$| selinux=0 console=tty0 console=ttyS0|' /boot/grub/grub.conf"
+
