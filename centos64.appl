@@ -1,7 +1,7 @@
-name: centos64-2.1
+name: centos64-2.2
 summary: CentOS 6.4 
 version: 2
-release: 1
+release: 2
 
 os:
   name: centos
@@ -26,9 +26,14 @@ packages:
   - bash-completion
   - cloud-init
 
+files:
+  "/etc/rc.d":
+    - "rc.local"
 
 
 post:
   base:
+    - "chmod +x /etc/rc.d/rc.local"
+    - "cp -f /usr/share/zoneinfo/Europe/London /etc/localtime"
     - "sed -i '/kernel/ s|$| selinux=0 console=tty0 console=ttyS0|' /boot/grub/grub.conf"
 
